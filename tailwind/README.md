@@ -15,7 +15,7 @@
 
 ---
 
-## 🔹 Bagian Head
+## Bagian Head
 
 ```html
 <meta charset="UTF-8">
@@ -31,7 +31,7 @@
 
 ---
 
-## 🔹 Body Utama
+## Body Utama
 
 ```html
 <body class="bg-black text-white">
@@ -44,7 +44,7 @@
 
 ---
 
-## 🔹 Profile Section
+## Profile Section
 
 * **Foto profil** → `<img src="pp.jpg" class="w-36 h-36 rounded-full mr-8">` (bulat, ukuran 36).
 * **Username + tombol** → pakai `flex space-x-4`. Ada **Edit profile, View archive, dan ikon gear**.
@@ -53,7 +53,7 @@
 
 ---
 
-## 🔹 Highlights (Sorotan Story)
+## Highlights (Sorotan Story)
 
 ```html
 <div class="flex space-x-6 mb-12">
@@ -64,7 +64,7 @@
 
 ---
 
-## 🔹 Tabs Navigasi
+## Tabs Navigasi
 
 ```html
 <div class="flex justify-center border-t border-neutral-700 border-b mb-6">
@@ -79,7 +79,7 @@
 
 ---
 
-## 🔹 Posts Grid
+## Posts Grid
 
 ```html
 <div class="grid grid-cols-3 gap-1">
@@ -91,7 +91,7 @@
 
 ---
 
-## 🔹 Footer
+## Footer
 
 ```html
 <footer class="text-neutral-500 text-center text-sm py-8 space-x-4">

@@ -1,4 +1,4 @@
-# 📌 Penjelasan Bootstrap
+# Penjelasan Bootstrap
 
 ## 1. Apa itu Bootstrap?
 
@@ -12,10 +12,10 @@
 
 ## 2. Kenapa Bootstrap Dipakai?
 
-* 📱 **Responsif otomatis** → desain menyesuaikan layar HP, tablet, dan laptop.
-* ⚡ **Cepat** → banyak komponen siap pakai (navbar, card, button, form, dll).
-* 🎨 **Konsisten** → tampilan UI rapi tanpa styling manual terlalu banyak.
-* 🔧 **Mudah digabung** → bisa dipakai bareng framework lain (contoh: Tailwind, React, Vue).
+* **Responsif otomatis** → desain menyesuaikan layar HP, tablet, dan laptop.
+* **Cepat** → banyak komponen siap pakai (navbar, card, button, form, dll).
+* **Konsisten** → tampilan UI rapi tanpa styling manual terlalu banyak.
+* **Mudah digabung** → bisa dipakai bareng framework lain (contoh: Tailwind, React, Vue).
 
 ---
 
@@ -48,7 +48,7 @@ Di kode kamu, Bootstrap dipanggil lewat **CDN**:
    </button>
    ```
 
-   👉 Walau ditambah Tailwind, tetap bisa pakai utilitas Bootstrap kalau mau.
+Walau ditambah Tailwind, tetap bisa pakai utilitas Bootstrap kalau mau.
 
 2. **Ikon dari Bootstrap Icons**
 
@@ -58,7 +58,7 @@ Di kode kamu, Bootstrap dipanggil lewat **CDN**:
    <i class="bi bi-heart-fill"></i>       <!-- Ikon Love -->
    ```
 
-   👉 `bi bi-nama-icon` adalah class standar untuk menampilkan ikon Bootstrap.
+`bi bi-nama-icon` adalah class standar untuk menampilkan ikon Bootstrap.
 
 ---
 
