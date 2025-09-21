@@ -1,0 +1,203 @@
+<!DOCTYPE html> <!-- Menandakan dokumen ini adalah HTML5 -->
+<html lang="en"> <!-- Bahasa dokumen = English -->
+<head>
+  <meta charset="UTF-8"> <!-- Mengatur encoding karakter supaya simbol/emoji bisa tampil -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Supaya tampilan responsive di HP/laptop -->
+  <title>Instagram Desktop Clone</title> <!-- Judul halaman di tab browser -->
+
+  <!-- Tailwind CSS (library styling berbasis utility class) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Bootstrap CSS (library styling siap pakai) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Bootstrap Icons (ikon siap pakai seperti gear, bookmark, love, chat, dll.) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+  <style>
+    /* CSS tambahan */
+    .post-container { /* Container setiap postingan */
+      position: relative; /* Supaya overlay bisa ditempel di dalam */
+      overflow: hidden;   /* Agar gambar tidak keluar dari kotak */
+    }
+    .post-overlay { /* Layer transparan yang muncul saat hover */
+      position: absolute; /* Diposisikan di atas gambar */
+      inset: 0; /* Menutupi seluruh sisi (atas, kanan, bawah, kiri) */
+      background: rgba(0, 0, 0, 0.5); /* Hitam transparan */
+      display: flex; /* Pakai flexbox */
+      align-items: center; /* Tengah secara vertikal */
+      justify-content: center; /* Tengah secara horizontal */
+      gap: 1rem; /* Jarak antar ikon like & komentar */
+      opacity: 0; /* Awalnya tidak terlihat */
+      transition: opacity 0.3s ease-in-out; /* Animasi saat hover */
+    }
+    .post-container:hover .post-overlay {
+      opacity: 1; /* Overlay muncul ketika cursor diarahkan */
+    }
+    .btn-animate { /* Tombol dengan animasi hover */
+      transition: all 0.3s ease-in-out;
+    }
+    .btn-animate:hover {
+      filter: brightness(1.3); /* Tombol lebih terang saat hover */
+    }
+    .nav-tabs .nav-link { /* Style tab navigasi */
+      border: none; /* Hilangkan border bawaan */
+      color: #999; /* Warna abu untuk tab */
+    }
+    .nav-tabs .nav-link.active { /* Tab aktif */
+      color: #fff; /* Warna putih */
+      border-top: 2px solid #fff; /* Garis putih di atas tab */
+    }
+  </style>
+</head>
+<body class="bg-black text-white min-h-screen flex justify-center">
+  <!-- bg-black: latar hitam -->
+  <!-- text-white: teks putih -->
+  <!-- min-h-screen: tinggi minimal 1 layar penuh -->
+  <!-- flex justify-center: isi halaman dirata-tengah -->
+
+  <div class="w-full max-w-4xl"> <!-- Container utama, lebar maksimum sedang -->
+
+    <!-- Bagian Profil -->
+    <div class="p-6 flex items-center justify-between mb-8">
+      <div class="flex items-center space-x-6">
+        <!-- Foto Profil -->
+        <img src="pp.jpg" class="rounded-full w-36 h-36" alt="profile"> <!-- Foto profil bundar ukuran 36 -->
+        <div>
+          <!-- Username dan tombol -->
+          <div class="flex items-center space-x-4 mb-3">
+            <h2 class="text-2xl font-bold">alillakbr</h2> <!-- Username -->
+            <button class="bg-neutral-800 rounded-md px-3 py-1 text-sm font-semibold btn-animate">Edit profile</button> <!-- Tombol edit profil -->
+            <button class="bg-neutral-800 rounded-md px-3 py-1 text-sm font-semibold btn-animate">View archive</button> <!-- Tombol view archive -->
+            <i class="bi bi-gear text-2xl"></i> <!-- Ikon gear (pengaturan) -->
+          </div>
+
+          <!-- Statistik -->
+          <div class="flex space-x-8 mb-3">
+            <div class="text-center"> <!-- Jumlah postingan -->
+              <p class="font-bold">6</p> <!-- Angka postingan -->
+              <p class="text-sm">posts</p> <!-- Label -->
+            </div>
+            <div class="text-center"> <!-- Jumlah followers -->
+              <p class="font-bold">328</p>
+              <p class="text-sm">followers</p>
+            </div>
+            <div class="text-center"> <!-- Jumlah following -->
+              <p class="font-bold">316</p>
+              <p class="text-sm">following</p>
+            </div>
+          </div>
+
+          <!-- Bio -->
+          <p class="text-sm font-semibold">he/him</p> <!-- Bio singkat -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Bagian Sorotan (Highlight) -->
+    <div class="flex space-x-6 overflow-x-auto px-6 py-4 mb-16">
+      <div class="flex flex-col items-center"> <!-- Sorotan 1 -->
+        <img src="sorotan1.jpg" class="rounded-full border w-20 h-20" alt="highlight">
+        <p class="text-xs mt-1">.</p>
+      </div>
+      <div class="flex flex-col items-center"> <!-- Sorotan 2 -->
+        <img src="sorotan2.jpg" class="rounded-full border w-20 h-20" alt="highlight">
+        <p class="text-xs mt-1">.</p>
+      </div>
+      <div class="flex flex-col items-center"> <!-- Sorotan 3 -->
+        <img src="sorotan3.jpg" class="rounded-full border w-20 h-20" alt="highlight">
+        <p class="text-xs mt-1">.</p>
+      </div>
+      <!-- Sorotan Baru -->
+      <div class="flex flex-col items-center">
+        <div class="w-20 h-20 rounded-full border flex items-center justify-center">
+          <i class="bi bi-plus-lg text-2xl"></i> <!-- Ikon plus -->
+        </div>
+        <p class="text-xs mt-1">New</p>
+      </div>
+    </div>
+
+    <!-- Bagian Menu Tab -->
+    <div class="flex justify-center border-t border-neutral-700 text-gray-400 mb-6">
+      <button class="py-3 px-8 text-white border-t-2 border-white"> <!-- Tab aktif (post) -->
+        <i class="bi bi-grid-3x3 text-lg"></i>
+      </button>
+      <button class="py-3 px-8"> <!-- Tab saved -->
+        <i class="bi bi-bookmark text-lg"></i>
+      </button>
+      <button class="py-3 px-8"> <!-- Tab mention -->
+        <i class="bi bi-person-circle text-lg"></i>
+      </button>
+    </div>
+
+    <!-- Bagian Postingan -->
+    <div class="grid grid-cols-3 gap-1 mt-6"> <!-- Grid 3 kolom -->
+      <!-- Post 1 -->
+      <div class="aspect-square bg-black post-container">
+        <img src="post1.jpg" class="w-full h-full object-cover" alt="post">
+        <div class="post-overlay"> <!-- Overlay saat hover -->
+          <span><i class="bi bi-heart-fill text-xl"></i> 120</span> <!-- Jumlah like -->
+          <span><i class="bi bi-chat-fill text-xl"></i> 150</span> <!-- Jumlah komentar -->
+        </div>
+      </div>
+      <!-- Post 2 -->
+      <div class="aspect-square bg-black post-container">
+        <img src="post3.jpg" class="w-full h-full object-cover" alt="post">
+        <div class="post-overlay">
+          <span><i class="bi bi-heart-fill text-xl"></i> 200</span>
+          <span><i class="bi bi-chat-fill text-xl"></i> 22</span>
+        </div>
+      </div>
+      <!-- Post 3 -->
+      <div class="aspect-square bg-black post-container">
+        <img src="post2.jpg" class="w-full h-full object-cover" alt="post">
+        <div class="post-overlay">
+          <span><i class="bi bi-heart-fill text-xl"></i> 367</span>
+          <span><i class="bi bi-chat-fill text-xl"></i> 85</span>
+        </div>
+      </div>
+      <!-- Post 4 -->
+      <div class="aspect-square bg-black post-container">
+        <img src="post4.jpg" class="w-full h-full object-cover" alt="post">
+        <div class="post-overlay">
+          <span><i class="bi bi-heart-fill text-xl"></i> 258</span>
+          <span><i class="bi bi-chat-fill text-xl"></i> 37</span>
+        </div>
+      </div>
+      <!-- Post 5 -->
+      <div class="aspect-square bg-black post-container">
+        <img src="post5.jpg" class="w-full h-full object-cover" alt="post">
+        <div class="post-overlay">
+          <span><i class="bi bi-heart-fill text-xl"></i> 300</span>
+          <span><i class="bi bi-chat-fill text-xl"></i> 40</span>
+        </div>
+      </div>
+      <!-- Post 6 -->
+      <div class="aspect-square bg-black post-container">
+        <img src="post6.jpg" class="w-full h-full object-cover" alt="post">
+        <div class="post-overlay">
+          <span><i class="bi bi-heart-fill text-xl"></i> 231</span>
+          <span><i class="bi bi-chat-fill text-xl"></i> 46</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bagian Footer -->
+    <footer class="text-neutral-500 text-xs text-center py-6 space-x-4">
+      <span>Meta</span> <!-- Link footer -->
+      <span>About</span>
+      <span>Blog</span>
+      <span>Jobs</span>
+      <span>Help</span>
+      <span>API</span>
+      <span>Privacy</span>
+      <span>Terms</span>
+      <span>Locations</span>
+      <span>Instagram Lite</span>
+      <span>Threads</span>
+      <span>Meta Verified</span>
+      <p class="mt-2">© 2025 Instagram from Meta</p> <!-- Copyright -->
+    </footer>
+  </div>
+</body>
+</html>
