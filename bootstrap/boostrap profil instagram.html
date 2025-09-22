@@ -1,273 +1,242 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Deklarasi encoding dokumen -->
+  <!-- ================= HEAD ================= -->
   <meta charset="UTF-8">
-  <!-- Membuat tampilan responsif di semua device -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Judul tab browser -->
-  <title>Instagram Bootstrap Clone</title>
+  <title>Instagram</title>
 
-  <!-- Bootstrap CSS (library utama styling) -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Bootstrap Icons (untuk ikon seperti gear, heart, chat, dll) -->
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Bootstrap Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-
-  <!-- CSS Custom -->
-  <style>
-    body {
-      background-color: #000; /* Background hitam seperti Instagram */
-      color: #fff; /* Warna teks default putih */
-    }
-    .container {
-      max-width: 935px; /* Lebar maksimal seperti layout Instagram */
-    }
-    .post-container {
-      position: relative;
-      overflow: hidden;
-      aspect-ratio: 1/1; /* Kotak persegi untuk setiap post */
-    }
-    .post-container img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover; /* Menyesuaikan gambar agar rapi */
-    }
-    .post-overlay {
-      position: absolute;
-      inset: 0; /* Menutupi seluruh post */
-      background: rgba(0, 0, 0, 0.5);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 1rem;
-      opacity: 0; /* Tersembunyi awal */
-      transition: opacity 0.3s ease-in-out;
-    }
-    .post-container:hover .post-overlay {
-      opacity: 1; /* Muncul saat hover */
-    }
-    .nav-tabs .nav-link {
-      border: none; /* Menghapus border default Bootstrap */
-      color: #999;
-    }
-    .nav-tabs .nav-link.active {
-      color: #fff; /* Tab aktif berwarna putih */
-      border-top: 2px solid #fff;
-    }
-  </style>
 </head>
-<body>
-  <div class="container py-5">
-    <!-- ================== PROFILE SECTION ================== -->
-    <div class="d-flex align-items-center mb-5">
-      <!-- Foto profil -->
-      <img src="pp.jpg" class="rounded-circle me-4" style="width: 140px; height: 140px;" alt="Profile Picture">
 
-      <!-- Bio -->
-      <div>
-        <!-- Username + tombol -->
-        <div class="d-flex align-items-center mb-3 gap-3">
-          <h2 class="fw-bold fs-3">alillakbr</h2>
-          <button class="btn btn-dark btn-sm">Edit profile</button>
-          <button class="btn btn-dark btn-sm">View archive</button>
-          <i class="bi bi-gear fs-4" role="button" aria-label="Settings"></i>
+<body class="bg-black text-white">
+  <!-- ================= CONTAINER ================= -->
+  <div class="max-w-5xl mx-auto py-6 px-4">
+
+    <!-- ================= PROFILE SECTION ================= -->
+    <div class="flex items-start gap-6 mb-6">
+      <!-- Foto Profil -->
+      <div class="w-28 h-28 md:w-36 md:h-36 rounded-full overflow-hidden flex-shrink-0">
+        <img src="pp.jpg" alt="profile" class="w-full h-full object-cover">
+      </div>
+
+      <!-- Bagian Kanan -->
+      <div class="flex-1">
+        <!-- Username + Buttons -->
+        <div class="flex items-center space-x-2 mb-1">
+          <h2 class="text-2xl font-bold">alillakbr</h2>
+          <button class="bg-neutral-800 rounded hover:brightness-125 transition 
+                         w-full text-center md:w-auto md:px-3 md:py-1 text-sm">
+            Follow
+          </button>
+          <button class="bg-neutral-800 rounded hover:brightness-125 transition 
+                         w-full text-center md:w-auto md:px-3 md:py-1 text-sm">
+            Message
+          </button>
+          <i class="bi bi-gear text-neutral-400"></i>
         </div>
 
-        <!-- Statistik -->
-        <div class="d-flex gap-4 mb-3">
-          <div><span class="fw-bold">6</span> posts</div>
-          <div><span class="fw-bold">328</span> followers</div>
-          <div><span class="fw-bold">316</span> following</div>
-        </div>
+      <!-- Statistik -->
+      <div class="flex flex-row space-x-5 mb-1 text-sm md:text-base">
+        <!-- Posts -->
+        <div class="order-none md:order-1"><span class="font-bold">12</span> posts</div>
+        <!-- Followers -->
+        <div class="order-none md:order-2"><span class="font-bold">328</span> followers</div>
+        <!-- Following -->
+        <div class="order-none md:order-3"><span class="font-bold">316</span> following</div>
+      </div>
 
-        <!-- Bio singkat -->
+        <!-- Bio -->
         <p class="mb-0">he/him</p>
-        <a href="#" class="text-info">@velisyaazellau</a>
+        <a href="#" class="text-sky-400">@velisyaazellau</a>
       </div>
     </div>
 
-    <!-- ================== HIGHLIGHTS SECTION ================== -->
-    <div class="d-flex gap-4 mb-5">
-      <!-- Highlight 1 -->
+    <!-- ================= HIGHLIGHTS ================= -->
+    <div class="flex justify-center md:justify-start space-x-6 mb-6">
       <div class="text-center">
-        <img src="sorotan1.jpg" class="rounded-circle border border-secondary" style="width: 80px; height: 80px;" alt="Highlight 1">
-        <p class="small mt-1">.</p>
+        <img src="sorotan1.jpg" alt="Highlight 1"
+             class="w-20 h-20 rounded-full border border-neutral-600 object-cover mx-auto">
+        <p class="text-sm mt-1">.</p>
       </div>
-      <!-- Highlight 2 -->
       <div class="text-center">
-        <img src="sorotan2.jpg" class="rounded-circle border border-secondary" style="width: 80px; height: 80px;" alt="Highlight 2">
-        <p class="small mt-1">.</p>
+        <img src="sorotan2.jpg" alt="Highlight 2"
+             class="w-20 h-20 rounded-full border border-neutral-600 object-cover mx-auto">
+        <p class="text-sm mt-1">.</p>
       </div>
-      <!-- Highlight 3 -->
       <div class="text-center">
-        <img src="sorotan3.jpg" class="rounded-circle border border-secondary" style="width: 80px; height: 80px;" alt="Highlight 3">
-        <p class="small mt-1">.</p>
+        <img src="sorotan3.jpg" alt="Highlight 3"
+             class="w-20 h-20 rounded-full border border-neutral-600 object-cover mx-auto">
+        <p class="text-sm mt-1">.</p>
       </div>
-      <!-- Highlight Tambah Baru -->
       <div class="text-center">
-        <div class="d-flex align-items-center justify-content-center border border-secondary rounded-circle" style="width: 80px; height: 80px;">
-          <i class="bi bi-plus-lg fs-3"></i>
+        <div class="w-20 h-20 rounded-full border border-neutral-600 flex items-center justify-center mx-auto">
+          <i class="bi bi-plus-lg text-2xl"></i>
         </div>
-        <p class="small mt-1">New</p>
+        <p class="text-sm mt-1">New</p>
       </div>
     </div>
 
-    <!-- ================== TABS SECTION ================== -->
-    <ul class="nav nav-tabs justify-content-center border-0 mb-4">
-      <li class="nav-item">
-        <a class="nav-link active" href="#" aria-label="Posts"><i class="bi bi-grid-3x3-gap-fill"></i></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#" aria-label="Saved"><i class="bi bi-bookmark"></i></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#" aria-label="Tagged"><i class="bi bi-person-circle"></i></a>
-      </li>
-    </ul>
+    <!-- ================= TABS ================= -->
+    <div class="flex justify-center border-t border-neutral-700 border-b mb-6">
+      <button class="px-6 py-2 text-neutral-400 hover:text-white 
+                     border-t-2 border-transparent hover:border-white flex items-center">
+        <i class="bi bi-grid-3x3-gap-fill"></i>
+      </button>
+      <button class="px-6 py-2 text-neutral-400 hover:text-white 
+                     border-t-2 border-transparent hover:border-white flex items-center">
+        <i class="bi bi-bookmark"></i>
+      </button>
+      <button class="px-6 py-2 text-neutral-400 hover:text-white 
+                     border-t-2 border-transparent hover:border-white flex items-center">
+        <i class="bi bi-person-circle"></i>
+      </button>
+    </div>
 
-    <!-- ================== POSTS GRID ================== -->
-    <div class="row g-1">
-      <!-- Post 1 -->
-      <div class="col-12 col-sm-4 col-lg-3">
-        <div class="post-container">
-          <img src="post1.jpg" alt="Post 1">
-          <div class="post-overlay">
-            <span><i class="bi bi-heart-fill"></i> 120</span>
-            <span><i class="bi bi-chat-fill"></i> 15</span>
-          </div>
-        </div>
-      </div>
+    <!-- ================= POSTS GRID ================= -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
+
       <!-- Post 2 -->
-      <div class="col-12 col-sm-4 col-lg-3">
-        <div class="post-container">
-          <img src="post2.jpg" alt="Post 2">
-          <div class="post-overlay">
-            <span><i class="bi bi-heart-fill"></i> 200</span>
-            <span><i class="bi bi-chat-fill"></i> 22</span>
-          </div>
+      <div class="relative group col-span-2 md:col-span-1">
+        <img src="post1.jpg" alt="post2" class="w-full object-cover">
+        <div class="absolute inset-0 bg-black/50 flex items-center justify-center gap-6 
+                    opacity-0 group-hover:opacity-100 transition">
+          <span><i class="bi bi-heart-fill"></i> 89</span>
+          <span><i class="bi bi-chat-fill"></i> 22</span>
         </div>
       </div>
+
+      <!-- Post 2 -->
+      <div class="relative group">
+        <img src="post2.jpg" alt="post2" class="w-full object-cover">
+        <div class="absolute inset-0 bg-black/50 flex items-center justify-center gap-6 
+                    opacity-0 group-hover:opacity-100 transition">
+          <span><i class="bi bi-heart-fill"></i> 89</span>
+          <span><i class="bi bi-chat-fill"></i> 22</span>
+        </div>
+      </div>
+
       <!-- Post 3 -->
-      <div class="col-12 col-sm-4 col-lg-3">
-        <div class="post-container">
-          <img src="post3.jpg" alt="Post 3">
-          <div class="post-overlay">
-            <span><i class="bi bi-heart-fill"></i> 367</span>
-            <span><i class="bi bi-chat-fill"></i> 85</span>
-          </div>
+      <div class="relative group">
+        <img src="post3.jpg" alt="post3" class="w-full object-cover">
+        <div class="absolute inset-0 bg-black/50 flex items-center justify-center gap-6 
+                    opacity-0 group-hover:opacity-100 transition">
+          <span><i class="bi bi-heart-fill"></i> 210</span>
+          <span><i class="bi bi-chat-fill"></i> 31</span>
         </div>
       </div>
+
       <!-- Post 4 -->
-      <div class="col-12 col-sm-4 col-lg-3">
-        <div class="post-container">
-          <img src="post4.jpg" alt="Post 4">
-          <div class="post-overlay">
-            <span><i class="bi bi-heart-fill"></i> 145</span>
-            <span><i class="bi bi-chat-fill"></i> 30</span>
-          </div>
+      <div class="relative group">
+        <img src="post4.jpg" alt="post4" class="w-full object-cover">
+        <div class="absolute inset-0 bg-black/50 flex items-center justify-center gap-6 
+                    opacity-0 group-hover:opacity-100 transition">
+          <span><i class="bi bi-heart-fill"></i> 45</span>
+          <span><i class="bi bi-chat-fill"></i> 6</span>
         </div>
       </div>
+
       <!-- Post 5 -->
-      <div class="col-12 col-sm-4 col-lg-3">
-        <div class="post-container">
-          <img src="post5.jpg" alt="Post 5">
-          <div class="post-overlay">
-            <span><i class="bi bi-heart-fill"></i> 367</span>
-            <span><i class="bi bi-chat-fill"></i> 85</span>
-          </div>
+      <div class="relative group">
+        <img src="post5.jpg" alt="post5" class="w-full object-cover">
+        <div class="absolute inset-0 bg-black/50 flex items-center justify-center gap-6 
+                    opacity-0 group-hover:opacity-100 transition">
+          <span><i class="bi bi-heart-fill"></i> 300</span>
+          <span><i class="bi bi-chat-fill"></i> 40</span>
         </div>
       </div>
+
       <!-- Post 6 -->
-      <div class="col-12 col-sm-4 col-lg-3">
-        <div class="post-container">
-          <img src="post6.jpg" alt="Post 6">
-          <div class="post-overlay">
-            <span><i class="bi bi-heart-fill"></i> 367</span>
-            <span><i class="bi bi-chat-fill"></i> 85</span>
-          </div>
+      <div class="relative group">
+        <img src="post6.jpg" alt="post6" class="w-full object-cover">
+        <div class="absolute inset-0 bg-black/50 flex items-center justify-center gap-6 
+                    opacity-0 group-hover:opacity-100 transition">
+          <span><i class="bi bi-heart-fill"></i> 99</span>
+          <span><i class="bi bi-chat-fill"></i> 12</span>
         </div>
       </div>
+
       <!-- Post 7 -->
-      <div class="col-12 col-sm-4 col-lg-3">
-        <div class="post-container">
-          <img src="post7.jpg" alt="Post 7">
-          <div class="post-overlay">
-            <span><i class="bi bi-heart-fill"></i> 367</span>
-            <span><i class="bi bi-chat-fill"></i> 85</span>
-          </div>
+      <div class="relative group">
+        <img src="post7.jpg" alt="post7" class="w-full object-cover">
+        <div class="absolute inset-0 bg-black/50 flex items-center justify-center gap-6 
+                    opacity-0 group-hover:opacity-100 transition">
+          <span><i class="bi bi-heart-fill"></i> 145</span>
+          <span><i class="bi bi-chat-fill"></i> 18</span>
         </div>
       </div>
+
       <!-- Post 8 -->
-      <div class="col-12 col-sm-4 col-lg-3">
-        <div class="post-container">
-          <img src="post8.jpg" alt="Post 8">
-          <div class="post-overlay">
-            <span><i class="bi bi-heart-fill"></i> 367</span>
-            <span><i class="bi bi-chat-fill"></i> 85</span>
-          </div>
+      <div class="relative group">
+        <img src="post8.jpg" alt="post8" class="w-full object-cover">
+        <div class="absolute inset-0 bg-black/50 flex items-center justify-center gap-6 
+                    opacity-0 group-hover:opacity-100 transition">
+          <span><i class="bi bi-heart-fill"></i> 210</span>
+          <span><i class="bi bi-chat-fill"></i> 28</span>
         </div>
       </div>
+
       <!-- Post 9 -->
-      <div class="col-12 col-sm-4 col-lg-3">
-        <div class="post-container">
-          <img src="post9.jpg" alt="Post 9">
-          <div class="post-overlay">
-            <span><i class="bi bi-heart-fill"></i> 367</span>
-            <span><i class="bi bi-chat-fill"></i> 85</span>
-          </div>
+      <div class="relative group">
+        <img src="post9.jpg" alt="post9" class="w-full object-cover">
+        <div class="absolute inset-0 bg-black/50 flex items-center justify-center gap-6 
+                    opacity-0 group-hover:opacity-100 transition">
+          <span><i class="bi bi-heart-fill"></i> 310</span>
+          <span><i class="bi bi-chat-fill"></i> 40</span>
         </div>
       </div>
+
       <!-- Post 10 -->
-      <div class="col-12 col-sm-4 col-lg-3">
-        <div class="post-container">
-          <img src="post10.jpg" alt="Post 10">
-          <div class="post-overlay">
-            <span><i class="bi bi-heart-fill"></i> 367</span>
-            <span><i class="bi bi-chat-fill"></i> 85</span>
-          </div>
+      <div class="relative group">
+        <img src="post10.jpg" alt="post10" class="w-full object-cover">
+        <div class="absolute inset-0 bg-black/50 flex items-center justify-center gap-6 
+                    opacity-0 group-hover:opacity-100 transition">
+          <span><i class="bi bi-heart-fill"></i> 75</span>
+          <span><i class="bi bi-chat-fill"></i> 9</span>
         </div>
       </div>
+
       <!-- Post 11 -->
-      <div class="col-12 col-sm-4 col-lg-3">
-        <div class="post-container">
-          <img src="post11.jpg" alt="Post 11">
-          <div class="post-overlay">
-            <span><i class="bi bi-heart-fill"></i> 367</span>
-            <span><i class="bi bi-chat-fill"></i> 85</span>
-          </div>
+      <div class="relative group">
+        <img src="post11.jpg" alt="post11" class="w-full object-cover">
+        <div class="absolute inset-0 bg-black/50 flex items-center justify-center gap-6 
+                    opacity-0 group-hover:opacity-100 transition">
+          <span><i class="bi bi-heart-fill"></i> 420</span>
+          <span><i class="bi bi-chat-fill"></i> 55</span>
         </div>
       </div>
+
       <!-- Post 12 -->
-      <div class="col-12 col-sm-4 col-lg-3">
-        <div class="post-container">
-          <img src="post12.jpg" alt="Post 12">
-          <div class="post-overlay">
-            <span><i class="bi bi-heart-fill"></i> 367</span>
-            <span><i class="bi bi-chat-fill"></i> 85</span>
-          </div>
+      <div class="relative group">
+        <img src="post12.jpg" alt="post12" class="w-full object-cover">
+        <div class="absolute inset-0 bg-black/50 flex items-center justify-center gap-6 
+                    opacity-0 group-hover:opacity-100 transition">
+          <span><i class="bi bi-heart-fill"></i> 160</span>
+          <span><i class="bi bi-chat-fill"></i> 19</span>
         </div>
       </div>
     </div>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="text-neutral-500 text-center text-sm py-8 space-x-4">
+      <span>Meta</span>
+      <span>About</span>
+      <span>Blog</span>
+      <span>Jobs</span>
+      <span>Help</span>
+      <span>API</span>
+      <span>Privacy</span>
+      <span>Terms</span>
+      <span>Locations</span>
+      <span>Instagram Lite</span>
+      <span>Threads</span>
+      <span>Meta Verified</span>
+      <p class="mt-2">© 2025 Instagram from Meta</p>
+    </footer>
   </div>
-
-  <!-- ================== FOOTER SECTION ================== -->
-  <footer class="text-secondary text-center small py-5">
-    <span class="me-3">Meta</span>
-    <span class="me-3">About</span>
-    <span class="me-3">Blog</span>
-    <span class="me-3">Jobs</span>
-    <span class="me-3">Help</span>
-    <span class="me-3">API</span>
-    <span class="me-3">Privacy</span>
-    <span class="me-3">Terms</span>
-    <span class="me-3">Locations</span>
-    <span class="me-3">Instagram Lite</span>
-    <span class="me-3">Threads</span>
-    <span class="me-3">Meta Verified</span>
-    <p class="mt-2 mb-0">© 2025 Instagram from Meta</p>
-  </footer>
-
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

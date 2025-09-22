@@ -6,7 +6,7 @@
   <!-- Supaya responsive di semua device -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Judul tab browser -->
-  <title>Instagram Tailwind Clone</title>
+  <title>Instagram</title>
 
   <!-- Import Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -20,47 +20,47 @@
   <div class="max-w-5xl mx-auto py-6 px-4">
 
     <!-- ================= PROFILE SECTION ================= -->
-    <div class="flex flex-col md:flex-row items-center md:items-start mb-6 gap-6">
-      
+    <div class="flex items-start gap-6 mb-6">
       <!-- Foto Profil -->
-      <div class="order-2 md:order-1">
-        <img src="pp.jpg" class="w-32 h-32 md:w-36 md:h-36 rounded-full mx-auto md:mx-0" alt="profile">
+      <div class="w-28 h-28 md:w-36 md:h-36 rounded-full overflow-hidden flex-shrink-0">
+        <img src="pp.jpg" class="w-full h-full object-cover" alt="profile">
       </div>
 
-      <!-- Bio -->
-      <div class="order-1 md:order-2 text-center md:text-left">
-        <!-- Username + Button -->
-        <div class="flex flex-col md:flex-row md:items-center md:space-x-4 mb-3">
-          <h2 class="text-2xl font-bold mb-2 md:mb-0">alillakbr</h2>
-          <div class="flex justify-center md:justify-start space-x-2">
-            <!-- Tombol Follow -->
-            <button class="px-3 py-1 text-xs sm:text-sm md:px-4 md:py-2 md:text-sm lg:px-6 lg:py-2 lg:text-base bg-neutral-800 rounded hover:brightness-125 transition">
-              Follow
-            </button>
-            <!-- Tombol Message -->
-            <button class="px-3 py-1 text-xs sm:text-sm md:px-4 md:py-2 md:text-sm lg:px-6 lg:py-2 lg:text-base bg-neutral-800 rounded hover:brightness-125 transition">
-              Message
-            </button>
-            <!-- Icon Setting -->
-            <i class="bi bi-gear text-xl hidden md:inline"></i>
-          </div>
-        </div>
+      <!-- Bagian kanan -->
+      <div class="flex-1">
+    <!-- Username + Buttons + Gear -->
+    <div class="flex items-center gap-2 mb-2">
+      <h2 class="text-2xl font-bold">alillakbr</h2>
 
-        <!-- Statistik akun -->
-        <div class="flex justify-center md:justify-start space-x-6 mb-3">
+      <!-- Container tombol -->
+      <div class="flex items-center gap-2">
+        <button class="px-2 py-1 text-sm bg-neutral-800 rounded hover:brightness-125 transition">
+          Follow
+        </button>
+        <button class="px-2 py-1 text-sm bg-neutral-800 rounded hover:brightness-125 transition">
+          Message
+        </button>
+      </div>
+
+      <!-- Gear -->
+      <i class="bi bi-gear text-xl text-neutral-400 cursor-pointer m0-0"></i>
+    </div>
+
+        <!-- Statistik -->
+        <div class="flex space-x-5 mb-2">
           <div><span class="font-bold">12</span> posts</div>
           <div><span class="font-bold">328</span> followers</div>
           <div><span class="font-bold">316</span> following</div>
         </div>
 
-        <!-- Bio singkat -->
+        <!-- Bio -->
         <p class="mb-0">he/him</p>
         <a href="#" class="text-sky-400">@velisyaazellau</a>
       </div>
     </div>
 
     <!-- ================= HIGHLIGHTS ================= -->
-    <div class="flex justify-center md:justify-start space-x-6 mb-12">
+    <div class="flex justify-center md:justify-start space-x-6 mb-6">
       <div class="text-center">
         <img src="sorotan1.jpg" class="w-20 h-20 rounded-full border border-neutral-600 object-cover mx-auto" alt="Highlight 1">
         <p class="text-sm mt-1">.</p>
@@ -110,8 +110,8 @@
       <div class="relative group">
         <img src="post2.jpg" class="w-full object-cover" alt="post2">
         <div class="absolute inset-0 bg-black/50 flex items-center justify-center gap-6 opacity-0 group-hover:opacity-100 transition">
-          <span><i class="bi bi-heart-fill"></i> 89</span>
-          <span><i class="bi bi-chat-fill"></i> 22</span>
+          <span><i class="bi bi-heart-fill"></i> 120</span>
+          <span><i class="bi bi-chat-fill"></i> 34</span>
         </div>
       </div>
 
@@ -119,83 +119,92 @@
       <div class="relative group">
         <img src="post3.jpg" class="w-full object-cover" alt="post3">
         <div class="absolute inset-0 bg-black/50 flex items-center justify-center gap-6 opacity-0 group-hover:opacity-100 transition">
-          <span><i class="bi bi-heart-fill"></i> 210</span>
-          <span><i class="bi bi-chat-fill"></i> 31</span>
+          <span><i class="bi bi-heart-fill"></i> 77</span>
+          <span><i class="bi bi-chat-fill"></i> 19</span>
         </div>
       </div>
 
-      <!-- Post 4 s/d 12 (dirapikan) -->
+      <!-- Post 4 -->
       <div class="relative group">
         <img src="post4.jpg" class="w-full object-cover" alt="post4">
         <div class="absolute inset-0 bg-black/50 flex items-center justify-center gap-6 opacity-0 group-hover:opacity-100 transition">
-          <span><i class="bi bi-heart-fill"></i> 45</span>
-          <span><i class="bi bi-chat-fill"></i> 6</span>
+          <span><i class="bi bi-heart-fill"></i> 65</span>
+          <span><i class="bi bi-chat-fill"></i> 14</span>
         </div>
       </div>
 
+      <!-- Post 5 -->
       <div class="relative group">
         <img src="post5.jpg" class="w-full object-cover" alt="post5">
         <div class="absolute inset-0 bg-black/50 flex items-center justify-center gap-6 opacity-0 group-hover:opacity-100 transition">
-          <span><i class="bi bi-heart-fill"></i> 300</span>
-          <span><i class="bi bi-chat-fill"></i> 40</span>
+          <span><i class="bi bi-heart-fill"></i> 54</span>
+          <span><i class="bi bi-chat-fill"></i> 10</span>
         </div>
       </div>
 
+      <!-- Post 6 -->
       <div class="relative group">
         <img src="post6.jpg" class="w-full object-cover" alt="post6">
         <div class="absolute inset-0 bg-black/50 flex items-center justify-center gap-6 opacity-0 group-hover:opacity-100 transition">
           <span><i class="bi bi-heart-fill"></i> 99</span>
-          <span><i class="bi bi-chat-fill"></i> 12</span>
-        </div>
-      </div>
-
-      <div class="relative group">
-        <img src="post7.jpg" class="w-full object-cover" alt="post7">
-        <div class="absolute inset-0 bg-black/50 flex items-center justify-center gap-6 opacity-0 group-hover:opacity-100 transition">
-          <span><i class="bi bi-heart-fill"></i> 145</span>
-          <span><i class="bi bi-chat-fill"></i> 18</span>
-        </div>
-      </div>
-
-      <div class="relative group">
-        <img src="post8.jpg" class="w-full object-cover" alt="post8">
-        <div class="absolute inset-0 bg-black/50 flex items-center justify-center gap-6 opacity-0 group-hover:opacity-100 transition">
-          <span><i class="bi bi-heart-fill"></i> 210</span>
           <span><i class="bi bi-chat-fill"></i> 28</span>
         </div>
       </div>
 
+      <!-- Post 7 -->
+      <div class="relative group">
+        <img src="post7.jpg" class="w-full object-cover" alt="post7">
+        <div class="absolute inset-0 bg-black/50 flex items-center justify-center gap-6 opacity-0 group-hover:opacity-100 transition">
+          <span><i class="bi bi-heart-fill"></i> 80</span>
+          <span><i class="bi bi-chat-fill"></i> 21</span>
+        </div>
+      </div>
+
+      <!-- Post 8 -->
+      <div class="relative group">
+        <img src="post8.jpg" class="w-full object-cover" alt="post8">
+        <div class="absolute inset-0 bg-black/50 flex items-center justify-center gap-6 opacity-0 group-hover:opacity-100 transition">
+          <span><i class="bi bi-heart-fill"></i> 112</span>
+          <span><i class="bi bi-chat-fill"></i> 30</span>
+        </div>
+      </div>
+
+      <!-- Post 9 -->
       <div class="relative group">
         <img src="post9.jpg" class="w-full object-cover" alt="post9">
         <div class="absolute inset-0 bg-black/50 flex items-center justify-center gap-6 opacity-0 group-hover:opacity-100 transition">
-          <span><i class="bi bi-heart-fill"></i> 310</span>
+          <span><i class="bi bi-heart-fill"></i> 71</span>
+          <span><i class="bi bi-chat-fill"></i> 16</span>
+        </div>
+      </div>
+
+      <!-- Post 10 -->
+      <div class="relative group">
+        <img src="post10.jpg" class="w-full object-cover" alt="post10">
+        <div class="absolute inset-0 bg-black/50 flex items-center justify-center gap-6 opacity-0 group-hover:opacity-100 transition">
+          <span><i class="bi bi-heart-fill"></i> 88</span>
+          <span><i class="bi bi-chat-fill"></i> 24</span>
+        </div>
+      </div>
+
+      <!-- Post 11 -->
+      <div class="relative group">
+        <img src="post11.jpg" class="w-full object-cover" alt="post11">
+        <div class="absolute inset-0 bg-black/50 flex items-center justify-center gap-6 opacity-0 group-hover:opacity-100 transition">
+          <span><i class="bi bi-heart-fill"></i> 132</span>
           <span><i class="bi bi-chat-fill"></i> 40</span>
         </div>
       </div>
 
-      <div class="relative group">
-        <img src="post10.jpg" class="w-full object-cover" alt="post10">
-        <div class="absolute inset-0 bg-black/50 flex items-center justify-center gap-6 opacity-0 group-hover:opacity-100 transition">
-          <span><i class="bi bi-heart-fill"></i> 75</span>
-          <span><i class="bi bi-chat-fill"></i> 9</span>
-        </div>
-      </div>
-
-      <div class="relative group">
-        <img src="post11.jpg" class="w-full object-cover" alt="post11">
-        <div class="absolute inset-0 bg-black/50 flex items-center justify-center gap-6 opacity-0 group-hover:opacity-100 transition">
-          <span><i class="bi bi-heart-fill"></i> 420</span>
-          <span><i class="bi bi-chat-fill"></i> 55</span>
-        </div>
-      </div>
-
+      <!-- Post 12 -->
       <div class="relative group">
         <img src="post12.jpg" class="w-full object-cover" alt="post12">
         <div class="absolute inset-0 bg-black/50 flex items-center justify-center gap-6 opacity-0 group-hover:opacity-100 transition">
-          <span><i class="bi bi-heart-fill"></i> 160</span>
-          <span><i class="bi bi-chat-fill"></i> 19</span>
+          <span><i class="bi bi-heart-fill"></i> 95</span>
+          <span><i class="bi bi-chat-fill"></i> 18</span>
         </div>
       </div>
+
     </div>
 
     <!-- ================= FOOTER ================= -->
