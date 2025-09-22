@@ -1,122 +1,205 @@
-<!DOCTYPE html> <!-- Menandakan dokumen ini adalah HTML5 -->
-<html lang="en"> <!-- Tag root HTML; set bahasa halaman ke English -->
-<head> <!-- Awal bagian head: metadata dan import CSS/JS -->
-  <meta charset="UTF-8"> <!-- Menentukan encoding karakter (UTF-8 agar emoji/karakter khusus tampil benar) -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Membuat layout responsif di perangkat mobile -->
-  <title>Instagram Desktop Clone</title> <!-- Judul halaman (tampil di tab browser) -->
-  <script src="https://cdn.tailwindcss.com"></script> <!-- Memuat Tailwind CSS via CDN untuk utility classes -->
-</head> <!-- Akhir head -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Instagram Desktop Clone</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+<style>
+/* 1 kolom */
+.posts-grid {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: repeat(1, 1fr);
+  align-items: start;
+}
 
-<body class="bg-black text-white"> <!-- Body; bg-black = background hitam, text-white = teks putih -->
+/* Mobile kecil */
+@media (max-width: 640px) {
+  .profile-stats { 
+    justify-content: flex-start;
+    text-align: left; 
+  }
+}
 
-<div class="max-w-4xl mx-auto py-6 px-4"> <!-- Container utama: max lebar 4xl, center (mx-auto), padding vertikal/horizontal -->
+/* Tablet: 3 kolom */
+@media (min-width: 640px) and (max-width: 1023px) {
+  .posts-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Desktop: 4 kolom */
+@media (min-width: 1024px) {
+  .posts-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+</style>
+</head>
+
+<body class="bg-black text-white">
+
+<div class="max-w-4xl mx-auto py-6 px-4">
 
   <!-- Profile Section -->
-  <div class="flex items-center mb-6"> <!-- Baris profil: flex horizontal, item center, margin-bottom -->
-    <img src="pp.jpg" class="w-36 h-36 rounded-full mr-8" alt="profile"> <!-- Foto profil: ukuran, bulat, margin kanan -->
-    <div> <!-- Wrapper untuk teks profil (username, tombol, statistik, bio) -->
-      <div class="flex items-center space-x-4 mb-3"> <!-- Baris username + tombol: flex & spacing antar elemen -->
-        <h2 class="text-2xl font-bold">alillakbr</h2> <!-- Username ditampilkan besar & bold -->
-        <button class="px-3 py-1 bg-neutral-800 rounded text-sm hover:brightness-125 transition">Edit profile</button> <!-- Tombol Edit profile dengan hover effect -->
-        <button class="px-3 py-1 bg-neutral-800 rounded text-sm hover:brightness-125 transition">View archive</button> <!-- Tombol View archive -->
-        <i class="bi bi-gear text-xl"></i> <!-- Ikon gear (butuh Bootstrap Icons) -->
-      </div> <!-- Akhir baris username + tombol -->
-
-      <div class="flex space-x-6 mb-3"> <!-- Baris statistik: posts / followers / following -->
-        <div><span class="font-bold">6</span> posts</div> <!-- Jumlah posts (angka bold) -->
-        <div><span class="font-bold">328</span> followers</div> <!-- Jumlah followers -->
-        <div><span class="font-bold">316</span> following</div> <!-- Jumlah following -->
-      </div> <!-- Akhir statistik -->
-
-      <p class="mb-0">he/him</p> <!-- Bio singkat -->
-      <a href="#" class="text-sky-400">@velisyaazellau</a> <!-- Link/handle yang berwarna -->
-    </div> <!-- Akhir wrapper teks profil -->
-  </div> <!-- Akhir Profile Section -->
+  <div class="flex items-center mb-6">
+    <img src="pp.jpg" class="w-36 h-36 rounded-full mr-8" alt="profile">
+    <div>
+      <div class="flex items-center space-x-4 mb-3">
+        <h2 class="text-2xl font-bold">alillakbr</h2>
+        <button class="px-3 py-1 bg-neutral-800 rounded text-sm hover:brightness-125 transition">Edit profile</button>
+        <button class="px-3 py-1 bg-neutral-800 rounded text-sm hover:brightness-125 transition">View archive</button>
+        <i class="bi bi-gear text-xl"></i>
+      </div>
+      <div class="flex space-x-6 mb-3 profile-stats">
+        <div><span class="font-bold">12</span> posts</div>
+        <div><span class="font-bold">328</span> followers</div>
+        <div><span class="font-bold">316</span> following</div>
+      </div>
+      <p class="mb-0">he/him</p>
+      <a href="#" class="text-sky-400">@velisyaazellau</a>
+    </div>
+  </div>
 
   <!-- Highlights -->
-  <div class="flex space-x-6 mb-12"> <!-- Baris sorotan (highlight) horizontal, space antar item, margin bawah -->
-    <div class="text-center"> <!-- Highlight 1 wrapper -->
-      <img src="sorotan1.jpg" class="w-20 h-20 rounded-full border border-neutral-600 object-cover mx-auto" alt="Highlight 1"> <!-- Gambar sorotan bulat dengan border -->
-      <p class="text-sm mt-1">.</p> <!-- Label kecil di bawah ikon sorotan -->
-    </div> <!-- Akhir Highlight 1 -->
-    <div class="text-center"> <!-- Highlight 2 wrapper -->
-      <img src="sorotan2.jpg" class="w-20 h-20 rounded-full border border-neutral-600 object-cover mx-auto" alt="Highlight 2"> <!-- Highlight 2 -->
-      <p class="text-sm mt-1">.</p> <!-- Label -->
-    </div> <!-- Akhir Highlight 2 -->
-    <div class="text-center"> <!-- Highlight 3 wrapper -->
-      <img src="sorotan3.jpg" class="w-20 h-20 rounded-full border border-neutral-600 object-cover mx-auto" alt="Highlight 3"> <!-- Highlight 3 -->
-      <p class="text-sm mt-1">.</p> <!-- Label -->
-    </div> <!-- Akhir Highlight 3 -->
-    <div class="text-center"> <!-- Tombol tambah sorotan -->
-      <div class="w-20 h-20 rounded-full border border-neutral-600 flex items-center justify-center mx-auto"> <!-- Bulatan kosong untuk "+ New" -->
-        <i class="bi bi-plus-lg text-2xl"></i> <!-- Ikon plus (butuh Bootstrap Icons) -->
+  <div class="flex space-x-6 mb-12">
+    <div class="text-center">
+      <img src="sorotan1.jpg" class="w-20 h-20 rounded-full border border-neutral-600 object-cover mx-auto" alt="Highlight 1">
+      <p class="text-sm mt-1">.</p>
+    </div>
+    <div class="text-center">
+      <img src="sorotan2.jpg" class="w-20 h-20 rounded-full border border-neutral-600 object-cover mx-auto" alt="Highlight 2">
+      <p class="text-sm mt-1">.</p>
+    </div>
+    <div class="text-center">
+      <img src="sorotan3.jpg" class="w-20 h-20 rounded-full border border-neutral-600 object-cover mx-auto" alt="Highlight 3">
+      <p class="text-sm mt-1">.</p>
+    </div>
+    <div class="text-center">
+      <div class="w-20 h-20 rounded-full border border-neutral-600 flex items-center justify-center mx-auto">
+        <i class="bi bi-plus-lg text-2xl"></i>
       </div>
-      <p class="text-sm mt-1">New</p> <!-- Label tombol tambah -->
-    </div> <!-- Akhir tombol tambah sorotan -->
-  </div> <!-- Akhir Highlights -->
+      <p class="text-sm mt-1">New</p>
+    </div>
+  </div>
 
   <!-- Tabs -->
-  <div class="flex justify-center border-t border-neutral-700 border-b mb-6"> <!-- Baris navigasi tab: center, border top & bottom -->
-    <button class="px-6 py-2 text-neutral-400 hover:text-white border-t-2 border-transparent hover:border-white flex items-center space-x-1"> <!-- Tombol tab 1 -->
-      <i class="bi bi-grid-3x3-gap-fill"></i> <!-- Ikon grid (posts) -->
+  <div class="flex justify-center border-t border-neutral-700 border-b mb-6">
+    <button class="px-6 py-2 text-neutral-400 hover:text-white border-t-2 border-transparent hover:border-white flex items-center space-x-1">
+      <i class="bi bi-grid-3x3-gap-fill"></i>
     </button>
-    <button class="px-6 py-2 text-neutral-400 hover:text-white border-t-2 border-transparent hover:border-white flex items-center space-x-1"> <!-- Tombol tab 2 -->
-      <i class="bi bi-bookmark"></i> <!-- Ikon bookmark (saved) -->
+    <button class="px-6 py-2 text-neutral-400 hover:text-white border-t-2 border-transparent hover:border-white flex items-center space-x-1">
+      <i class="bi bi-bookmark"></i>
     </button>
-    <button class="px-6 py-2 text-neutral-400 hover:text-white border-t-2 border-transparent hover:border-white flex items-center space-x-1"> <!-- Tombol tab 3 -->
-      <i class="bi bi-person-circle"></i> <!-- Ikon person (tagged/mentions) -->
+    <button class="px-6 py-2 text-neutral-400 hover:text-white border-t-2 border-transparent hover:border-white flex items-center space-x-1">
+      <i class="bi bi-person-circle"></i>
     </button>
-  </div> <!-- Akhir Tabs -->
+  </div>
 
   <!-- Posts Grid -->
-  <div class="grid grid-cols-3 gap-1"> <!-- Grid 3 kolom untuk postingan, gap antar item kecil -->
-    <div class="relative group"> <!-- Post 1 container, group untuk hover state -->
-      <img src="post1.jpg" class="w-full object-cover" alt="post"> <!-- Gambar post, memenuhi lebar & crop sesuai kotak -->
-      <div class="absolute inset-0 bg-black/50 flex items-center justify-center gap-6 opacity-0 group-hover:opacity-100 transition"> <!-- Overlay muncul saat hover -->
-        <span><i class="bi bi-heart-fill"></i> 120</span> <!-- Icon hati + jumlah like -->
-        <span><i class="bi bi-chat-fill"></i> 15</span> <!-- Icon komentar + jumlah -->
+  <div class="posts-grid">
+    <!-- Post 1 -->
+    <div class="relative group">
+      <img src="post1.jpg" class="w-full object-cover" alt="post1">
+      <div class="absolute inset-0 bg-black/50 flex items-center justify-center gap-6 opacity-0 group-hover:opacity-100 transition">
+        <span><i class="bi bi-heart-fill"></i> 120</span>
+        <span><i class="bi bi-chat-fill"></i> 15</span>
       </div>
-    </div> <!-- Akhir Post 1 -->
-    <div class="relative group"> <!-- Post 2 -->
-      <img src="post3.jpg" class="w-full object-cover" alt="post"> <!-- Gambar post 2 -->
-      <div class="absolute inset-0 bg-black/50 flex items-center justify-center gap-6 opacity-0 group-hover:opacity-100 transition"> <!-- Overlay hover -->
-        <span><i class="bi bi-heart-fill"></i> 89</span> <!-- Likes -->
-        <span><i class="bi bi-chat-fill"></i> 22</span> <!-- Comments -->
+    </div>
+    <!-- Post 2 -->
+    <div class="relative group">
+      <img src="post2.jpg" class="w-full object-cover" alt="post2">
+      <div class="absolute inset-0 bg-black/50 flex items-center justify-center gap-6 opacity-0 group-hover:opacity-100 transition">
+        <span><i class="bi bi-heart-fill"></i> 89</span>
+        <span><i class="bi bi-chat-fill"></i> 22</span>
       </div>
-    </div> <!-- Akhir Post 2 -->
-    <div class="relative group"> <!-- Post 3 -->
-      <img src="post2.jpg" class="w-full object-cover" alt="post"> <!-- Gambar post 3 -->
-      <div class="absolute inset-0 bg-black/50 flex items-center justify-center gap-6 opacity-0 group-hover:opacity-100 transition"> <!-- Overlay hover -->
+    </div>
+    <!-- Post 3 -->
+    <div class="relative group">
+      <img src="post3.jpg" class="w-full object-cover" alt="post3">
+      <div class="absolute inset-0 bg-black/50 flex items-center justify-center gap-6 opacity-0 group-hover:opacity-100 transition">
         <span><i class="bi bi-heart-fill"></i> 210</span>
         <span><i class="bi bi-chat-fill"></i> 31</span>
       </div>
-    </div> <!-- Akhir Post 3 -->
-    <div class="relative group"> <!-- Post 4 -->
-      <img src="post4.jpg" class="w-full object-cover" alt="post"> <!-- Gambar post 4 -->
+    </div>
+    <!-- Post 4 -->
+    <div class="relative group">
+      <img src="post4.jpg" class="w-full object-cover" alt="post4">
       <div class="absolute inset-0 bg-black/50 flex items-center justify-center gap-6 opacity-0 group-hover:opacity-100 transition">
         <span><i class="bi bi-heart-fill"></i> 45</span>
         <span><i class="bi bi-chat-fill"></i> 6</span>
       </div>
-    </div> <!-- Akhir Post 4 -->
-    <div class="relative group"> <!-- Post 5 -->
-      <img src="post5.jpg" class="w-full object-cover" alt="post"> <!-- Gambar post 5 -->
+    </div>
+    <!-- Post 5 -->
+    <div class="relative group">
+      <img src="post5.jpg" class="w-full object-cover" alt="post5">
       <div class="absolute inset-0 bg-black/50 flex items-center justify-center gap-6 opacity-0 group-hover:opacity-100 transition">
         <span><i class="bi bi-heart-fill"></i> 300</span>
         <span><i class="bi bi-chat-fill"></i> 40</span>
       </div>
-    </div> <!-- Akhir Post 5 -->
-    <div class="relative group"> <!-- Post 6 -->
-      <img src="post6.jpg" class="w-full object-cover" alt="post"> <!-- Gambar post 6 -->
+    </div>
+    <!-- Post 6 -->
+    <div class="relative group">
+      <img src="post6.jpg" class="w-full object-cover" alt="post6">
       <div class="absolute inset-0 bg-black/50 flex items-center justify-center gap-6 opacity-0 group-hover:opacity-100 transition">
         <span><i class="bi bi-heart-fill"></i> 99</span>
         <span><i class="bi bi-chat-fill"></i> 12</span>
       </div>
-    </div> <!-- Akhir Post 6 -->
-  </div> <!-- Akhir Posts Grid -->
+    </div>
+    <!-- Post 7 -->
+    <div class="relative group">
+      <img src="post7.jpg" class="w-full object-cover" alt="post7">
+      <div class="absolute inset-0 bg-black/50 flex items-center justify-center gap-6 opacity-0 group-hover:opacity-100 transition">
+        <span><i class="bi bi-heart-fill"></i> 145</span>
+        <span><i class="bi bi-chat-fill"></i> 18</span>
+      </div>
+    </div>
+    <!-- Post 8 -->
+    <div class="relative group">
+      <img src="post8.jpg" class="w-full object-cover" alt="post8">
+      <div class="absolute inset-0 bg-black/50 flex items-center justify-center gap-6 opacity-0 group-hover:opacity-100 transition">
+        <span><i class="bi bi-heart-fill"></i> 210</span>
+        <span><i class="bi bi-chat-fill"></i> 28</span>
+      </div>
+    </div>
+    <!-- Post 9 -->
+    <div class="relative group">
+      <img src="post9.jpg" class="w-full object-cover" alt="post9">
+      <div class="absolute inset-0 bg-black/50 flex items-center justify-center gap-6 opacity-0 group-hover:opacity-100 transition">
+        <span><i class="bi bi-heart-fill"></i> 310</span>
+        <span><i class="bi bi-chat-fill"></i> 40</span>
+      </div>
+    </div>
+    <!-- Post 10 -->
+    <div class="relative group">
+      <img src="post10.jpg" class="w-full object-cover" alt="post10">
+      <div class="absolute inset-0 bg-black/50 flex items-center justify-center gap-6 opacity-0 group-hover:opacity-100 transition">
+        <span><i class="bi bi-heart-fill"></i> 75</span>
+        <span><i class="bi bi-chat-fill"></i> 9</span>
+      </div>
+    </div>
+    <!-- Post 11 -->
+    <div class="relative group">
+      <img src="post11.jpg" class="w-full object-cover" alt="post11">
+      <div class="absolute inset-0 bg-black/50 flex items-center justify-center gap-6 opacity-0 group-hover:opacity-100 transition">
+        <span><i class="bi bi-heart-fill"></i> 420</span>
+        <span><i class="bi bi-chat-fill"></i> 55</span>
+      </div>
+    </div>
+    <!-- Post 12 -->
+    <div class="relative group">
+      <img src="post12.jpg" class="w-full object-cover" alt="post12">
+      <div class="absolute inset-0 bg-black/50 flex items-center justify-center gap-6 opacity-0 group-hover:opacity-100 transition">
+        <span><i class="bi bi-heart-fill"></i> 160</span>
+        <span><i class="bi bi-chat-fill"></i> 19</span>
+      </div>
+    </div>
+  </div>
 
   <!-- Footer -->
-  <footer class="text-neutral-500 text-center text-sm py-8 space-x-4"> <!-- Footer: teks abu, center, ukuran kecil, padding vertikal -->
-    <span>Meta</span> <!-- Link / label di footer -->
+  <footer class="text-neutral-500 text-center text-sm py-8 space-x-4">
+    <span>Meta</span>
     <span>About</span>
     <span>Blog</span>
     <span>Jobs</span>
@@ -128,11 +211,11 @@
     <span>Instagram Lite</span>
     <span>Threads</span>
     <span>Meta Verified</span>
-    <p class="mt-2">© 2025 Instagram from Meta</p> <!-- Copyright kecil -->
-  </footer> <!-- Akhir Footer -->
-</div> <!-- Akhir container utama -->
+    <p class="mt-2">© 2025 Instagram from Meta</p>
+  </footer>
+</div>
 
 <!-- Bootstrap Icons -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"> <!-- Import icon set yang dipakai di banyak <i class="bi ..."> -->
-</body> <!-- Akhir body -->
-</html> <!-- Akhir dokumen HTML -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+</body>
+</html>

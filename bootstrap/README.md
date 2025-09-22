@@ -1,84 +1,67 @@
-# Penjelasan Bootstrap
+# Instagram Bootstrap Clone
 
-## 1. Apa itu Bootstrap?
-
-**Bootstrap** adalah framework **CSS open-source** yang digunakan untuk membuat website responsif dan cepat.
-
-* Dikembangkan oleh **Twitter** (2011).
-* Sekarang jadi salah satu library front-end paling populer.
-* Fungsinya untuk mempermudah styling **HTML** tanpa harus menulis banyak **CSS manual**.
+Proyek ini merupakan replika sederhana halaman profil Instagram menggunakan **Bootstrap 5** dan **Bootstrap Icons**.  
+Fokus utamanya adalah menampilkan profil, sorotan, tab navigasi, grid postingan, serta footer dengan layout yang mirip Instagram.
 
 ---
 
-## 2. Kenapa Bootstrap Dipakai?
-
-* **Responsif otomatis** → desain menyesuaikan layar HP, tablet, dan laptop.
-* **Cepat** → banyak komponen siap pakai (navbar, card, button, form, dll).
-* **Konsisten** → tampilan UI rapi tanpa styling manual terlalu banyak.
-* **Mudah digabung** → bisa dipakai bareng framework lain (contoh: Tailwind, React, Vue).
-
----
-
-## 3. Cara Menggunakan Bootstrap
-
-Di kode kamu, Bootstrap dipanggil lewat **CDN**:
-
-```html
-<!-- Bootstrap CSS -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" 
-      rel="stylesheet">
-
-<!-- Bootstrap Icons -->
-<link rel="stylesheet" 
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-```
-
-* **CSS Bootstrap** → memberikan gaya bawaan untuk elemen HTML.
-* **Bootstrap Icons** → pustaka ikon siap pakai (contoh: gear, bookmark, love, chat).
+## 1. Keputusan Grid dan Breakpoint
+- **Bootstrap Grid System** digunakan untuk mengatur tata letak postingan.  
+- Setiap post ditempatkan dalam `.col-12 col-sm-4 col-lg-3`:  
+  - `col-12` → mobile kecil menampilkan **1 kolom penuh** agar konten terbaca jelas.  
+  - `col-sm-4` → pada tablet (≥576px) menjadi **3 kolom** sehingga layout lebih padat.  
+  - `col-lg-3` → pada desktop (≥992px) menjadi **4 kolom** untuk memanfaatkan lebar layar.  
+- Kelas `.row.g-1` memberi jarak antar post (1 unit gap Bootstrap).  
 
 ---
 
-## 4. Fitur Bootstrap yang Terlihat di Kode
-
-1. **Tombol & Layout**
-
-   ```html
-   <button class="bg-neutral-800 rounded-md px-3 py-1 text-sm font-semibold btn-animate">
-     Edit profile
-   </button>
-   ```
-
-Walau ditambah Tailwind, tetap bisa pakai utilitas Bootstrap kalau mau.
-
-2. **Ikon dari Bootstrap Icons**
-
-   ```html
-   <i class="bi bi-gear text-2xl"></i>   <!-- Ikon Gear (Pengaturan) -->
-   <i class="bi bi-bookmark text-lg"></i> <!-- Ikon Bookmark -->
-   <i class="bi bi-heart-fill"></i>       <!-- Ikon Love -->
-   ```
-
-`bi bi-nama-icon` adalah class standar untuk menampilkan ikon Bootstrap.
+## 2. Pemanfaatan Fitur Bootstrap
+- **Grid System** untuk mengatur layout responsif tanpa perlu CSS tambahan yang rumit.  
+- **Bootstrap Icons** digunakan pada tombol, overlay post (ikon hati dan komentar), serta tab navigasi.  
+- **Utility Classes** seperti `d-flex`, `gap-3`, `text-center`, `rounded-circle` mempercepat styling.  
+- **Nav Tabs** digunakan untuk meniru tab navigasi Instagram (Posts, Saved, Tagged).  
 
 ---
 
-## 5. Contoh Komponen Lain dari Bootstrap
-
-Selain ikon, Bootstrap juga punya:
-
-* **Grid system** (`.row`, `.col`) untuk layout.
-* **Form control** (input, checkbox, radio, dropdown).
-* **Navbar** (navigasi siap pakai).
-* **Modal & Alert** untuk pop-up pesan.
-* **Carousel** untuk slideshow gambar.
+## 3. CSS Kustom
+Beberapa CSS kustom ditambahkan untuk meniru efek Instagram:  
+- `.post-container` dengan `aspect-ratio: 1/1` memastikan gambar selalu kotak.  
+- `.post-overlay` menampilkan jumlah like dan komentar saat di-hover.  
+- Styling tab: `nav-tabs .nav-link.active` diberi garis atas putih agar mirip Instagram.  
+- Warna dasar: `body { background-color: #000; color: #fff; }` untuk tema gelap.  
 
 ---
 
-## 6. Ringkasan
+## 4. Trade-off Bootstrap Utility vs CSS Kustom
+- **Bootstrap Utility**  
+  - Kelebihan: cepat, konsisten, dan responsif tanpa tambahan banyak kode.  
+  - Kekurangan: keterbatasan dalam efek visual yang lebih kompleks.  
 
-Bootstrap di kode kamu dipakai untuk:
+- **CSS Kustom**  
+  - Kelebihan: fleksibilitas tinggi, mendukung fitur seperti overlay hover dan rasio aspek.  
+  - Kekurangan: butuh kode tambahan, perawatan lebih banyak jika proyek besar.  
 
-* **Icons** (gear, bookmark, heart, chat, person).
-* **CSS tambahan** untuk mendukung layout (walau mayoritas dipakai Tailwind).
+---
 
-Jadi fungsinya lebih ke **memanfaatkan ikon bawaan Bootstrap** biar nggak perlu cari ikon manual.
+## 5. Struktur Halaman
+1. **Profile Section**  
+   Menampilkan foto profil, nama, tombol aksi, statistik, bio, dan link.  
+
+2. **Highlights Section**  
+   Menampilkan sorotan cerita dengan foto berbentuk lingkaran dan opsi tambah sorotan baru.  
+
+3. **Tabs Section**  
+   Tab navigasi dengan ikon grid, bookmark, dan tagged.  
+
+4. **Posts Grid**  
+   Galeri foto berbentuk grid dengan overlay jumlah like dan komentar.  
+
+5. **Footer**  
+   Link navigasi tambahan (About, Blog, Jobs, Help, dll) serta copyright.  
+
+---
+
+## 6. Teknologi yang Digunakan
+- **Bootstrap 5.3** untuk grid system, komponen, dan utilitas.  
+- **Bootstrap Icons 1.11** untuk ikon antarmuka.  
+- **HTML5 & CSS3** dengan tambahan custom styling.  
