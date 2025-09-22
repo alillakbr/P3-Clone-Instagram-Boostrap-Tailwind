@@ -1,221 +1,220 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Set dokumen HTML5 -->
   <meta charset="UTF-8">
+  <!-- Supaya responsive di semua device -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Instagram Desktop Clone</title>
+  <!-- Judul tab browser -->
+  <title>Instagram Tailwind Clone</title>
+
+  <!-- Import Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
-<style>
-/* 1 kolom */
-.posts-grid {
-  display: grid;
-  gap: 8px;
-  grid-template-columns: repeat(1, 1fr);
-  align-items: start;
-}
 
-/* Mobile kecil */
-@media (max-width: 640px) {
-  .profile-stats { 
-    justify-content: flex-start;
-    text-align: left; 
-  }
-}
-
-/* Tablet: 3 kolom */
-@media (min-width: 640px) and (max-width: 1023px) {
-  .posts-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-/* Desktop: 4 kolom */
-@media (min-width: 1024px) {
-  .posts-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-</style>
+  <!-- Import Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 </head>
 
 <body class="bg-black text-white">
+  <!-- Container utama -->
+  <div class="max-w-5xl mx-auto py-6 px-4">
 
-<div class="max-w-4xl mx-auto py-6 px-4">
+    <!-- ================= PROFILE SECTION ================= -->
+    <div class="flex flex-col md:flex-row items-center md:items-start mb-6 gap-6">
+      
+      <!-- Foto Profil -->
+      <div class="order-2 md:order-1">
+        <img src="pp.jpg" class="w-32 h-32 md:w-36 md:h-36 rounded-full mx-auto md:mx-0" alt="profile">
+      </div>
 
-  <!-- Profile Section -->
-  <div class="flex items-center mb-6">
-    <img src="pp.jpg" class="w-36 h-36 rounded-full mr-8" alt="profile">
-    <div>
-      <div class="flex items-center space-x-4 mb-3">
-        <h2 class="text-2xl font-bold">alillakbr</h2>
-        <button class="px-3 py-1 bg-neutral-800 rounded text-sm hover:brightness-125 transition">Edit profile</button>
-        <button class="px-3 py-1 bg-neutral-800 rounded text-sm hover:brightness-125 transition">View archive</button>
-        <i class="bi bi-gear text-xl"></i>
+      <!-- Bio -->
+      <div class="order-1 md:order-2 text-center md:text-left">
+        <!-- Username + Button -->
+        <div class="flex flex-col md:flex-row md:items-center md:space-x-4 mb-3">
+          <h2 class="text-2xl font-bold mb-2 md:mb-0">alillakbr</h2>
+          <div class="flex justify-center md:justify-start space-x-2">
+            <!-- Tombol Follow -->
+            <button class="px-3 py-1 text-xs sm:text-sm md:px-4 md:py-2 md:text-sm lg:px-6 lg:py-2 lg:text-base bg-neutral-800 rounded hover:brightness-125 transition">
+              Follow
+            </button>
+            <!-- Tombol Message -->
+            <button class="px-3 py-1 text-xs sm:text-sm md:px-4 md:py-2 md:text-sm lg:px-6 lg:py-2 lg:text-base bg-neutral-800 rounded hover:brightness-125 transition">
+              Message
+            </button>
+            <!-- Icon Setting -->
+            <i class="bi bi-gear text-xl hidden md:inline"></i>
+          </div>
+        </div>
+
+        <!-- Statistik akun -->
+        <div class="flex justify-center md:justify-start space-x-6 mb-3">
+          <div><span class="font-bold">12</span> posts</div>
+          <div><span class="font-bold">328</span> followers</div>
+          <div><span class="font-bold">316</span> following</div>
+        </div>
+
+        <!-- Bio singkat -->
+        <p class="mb-0">he/him</p>
+        <a href="#" class="text-sky-400">@velisyaazellau</a>
       </div>
-      <div class="flex space-x-6 mb-3 profile-stats">
-        <div><span class="font-bold">12</span> posts</div>
-        <div><span class="font-bold">328</span> followers</div>
-        <div><span class="font-bold">316</span> following</div>
-      </div>
-      <p class="mb-0">he/him</p>
-      <a href="#" class="text-sky-400">@velisyaazellau</a>
     </div>
+
+    <!-- ================= HIGHLIGHTS ================= -->
+    <div class="flex justify-center md:justify-start space-x-6 mb-12">
+      <div class="text-center">
+        <img src="sorotan1.jpg" class="w-20 h-20 rounded-full border border-neutral-600 object-cover mx-auto" alt="Highlight 1">
+        <p class="text-sm mt-1">.</p>
+      </div>
+      <div class="text-center">
+        <img src="sorotan2.jpg" class="w-20 h-20 rounded-full border border-neutral-600 object-cover mx-auto" alt="Highlight 2">
+        <p class="text-sm mt-1">.</p>
+      </div>
+      <div class="text-center">
+        <img src="sorotan3.jpg" class="w-20 h-20 rounded-full border border-neutral-600 object-cover mx-auto" alt="Highlight 3">
+        <p class="text-sm mt-1">.</p>
+      </div>
+      <div class="text-center">
+        <div class="w-20 h-20 rounded-full border border-neutral-600 flex items-center justify-center mx-auto">
+          <i class="bi bi-plus-lg text-2xl"></i>
+        </div>
+        <p class="text-sm mt-1">New</p>
+      </div>
+    </div>
+
+    <!-- ================= TABS ================= -->
+    <div class="flex justify-center border-t border-neutral-700 border-b mb-6">
+      <button class="px-6 py-2 text-neutral-400 hover:text-white border-t-2 border-transparent hover:border-white flex items-center space-x-1">
+        <i class="bi bi-grid-3x3-gap-fill"></i>
+      </button>
+      <button class="px-6 py-2 text-neutral-400 hover:text-white border-t-2 border-transparent hover:border-white flex items-center space-x-1">
+        <i class="bi bi-bookmark"></i>
+      </button>
+      <button class="px-6 py-2 text-neutral-400 hover:text-white border-t-2 border-transparent hover:border-white flex items-center space-x-1">
+        <i class="bi bi-person-circle"></i>
+      </button>
+    </div>
+
+    <!-- ================= POSTS GRID ================= -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
+
+      <!-- Post 1 -->
+      <div class="relative group">
+        <img src="post1.jpg" class="w-full object-cover" alt="post1">
+        <div class="absolute inset-0 bg-black/50 flex items-center justify-center gap-6 opacity-0 group-hover:opacity-100 transition">
+          <span><i class="bi bi-heart-fill"></i> 89</span>
+          <span><i class="bi bi-chat-fill"></i> 22</span>
+        </div>
+      </div>
+
+      <!-- Post 2 -->
+      <div class="relative group">
+        <img src="post2.jpg" class="w-full object-cover" alt="post2">
+        <div class="absolute inset-0 bg-black/50 flex items-center justify-center gap-6 opacity-0 group-hover:opacity-100 transition">
+          <span><i class="bi bi-heart-fill"></i> 89</span>
+          <span><i class="bi bi-chat-fill"></i> 22</span>
+        </div>
+      </div>
+
+      <!-- Post 3 -->
+      <div class="relative group">
+        <img src="post3.jpg" class="w-full object-cover" alt="post3">
+        <div class="absolute inset-0 bg-black/50 flex items-center justify-center gap-6 opacity-0 group-hover:opacity-100 transition">
+          <span><i class="bi bi-heart-fill"></i> 210</span>
+          <span><i class="bi bi-chat-fill"></i> 31</span>
+        </div>
+      </div>
+
+      <!-- Post 4 s/d 12 (dirapikan) -->
+      <div class="relative group">
+        <img src="post4.jpg" class="w-full object-cover" alt="post4">
+        <div class="absolute inset-0 bg-black/50 flex items-center justify-center gap-6 opacity-0 group-hover:opacity-100 transition">
+          <span><i class="bi bi-heart-fill"></i> 45</span>
+          <span><i class="bi bi-chat-fill"></i> 6</span>
+        </div>
+      </div>
+
+      <div class="relative group">
+        <img src="post5.jpg" class="w-full object-cover" alt="post5">
+        <div class="absolute inset-0 bg-black/50 flex items-center justify-center gap-6 opacity-0 group-hover:opacity-100 transition">
+          <span><i class="bi bi-heart-fill"></i> 300</span>
+          <span><i class="bi bi-chat-fill"></i> 40</span>
+        </div>
+      </div>
+
+      <div class="relative group">
+        <img src="post6.jpg" class="w-full object-cover" alt="post6">
+        <div class="absolute inset-0 bg-black/50 flex items-center justify-center gap-6 opacity-0 group-hover:opacity-100 transition">
+          <span><i class="bi bi-heart-fill"></i> 99</span>
+          <span><i class="bi bi-chat-fill"></i> 12</span>
+        </div>
+      </div>
+
+      <div class="relative group">
+        <img src="post7.jpg" class="w-full object-cover" alt="post7">
+        <div class="absolute inset-0 bg-black/50 flex items-center justify-center gap-6 opacity-0 group-hover:opacity-100 transition">
+          <span><i class="bi bi-heart-fill"></i> 145</span>
+          <span><i class="bi bi-chat-fill"></i> 18</span>
+        </div>
+      </div>
+
+      <div class="relative group">
+        <img src="post8.jpg" class="w-full object-cover" alt="post8">
+        <div class="absolute inset-0 bg-black/50 flex items-center justify-center gap-6 opacity-0 group-hover:opacity-100 transition">
+          <span><i class="bi bi-heart-fill"></i> 210</span>
+          <span><i class="bi bi-chat-fill"></i> 28</span>
+        </div>
+      </div>
+
+      <div class="relative group">
+        <img src="post9.jpg" class="w-full object-cover" alt="post9">
+        <div class="absolute inset-0 bg-black/50 flex items-center justify-center gap-6 opacity-0 group-hover:opacity-100 transition">
+          <span><i class="bi bi-heart-fill"></i> 310</span>
+          <span><i class="bi bi-chat-fill"></i> 40</span>
+        </div>
+      </div>
+
+      <div class="relative group">
+        <img src="post10.jpg" class="w-full object-cover" alt="post10">
+        <div class="absolute inset-0 bg-black/50 flex items-center justify-center gap-6 opacity-0 group-hover:opacity-100 transition">
+          <span><i class="bi bi-heart-fill"></i> 75</span>
+          <span><i class="bi bi-chat-fill"></i> 9</span>
+        </div>
+      </div>
+
+      <div class="relative group">
+        <img src="post11.jpg" class="w-full object-cover" alt="post11">
+        <div class="absolute inset-0 bg-black/50 flex items-center justify-center gap-6 opacity-0 group-hover:opacity-100 transition">
+          <span><i class="bi bi-heart-fill"></i> 420</span>
+          <span><i class="bi bi-chat-fill"></i> 55</span>
+        </div>
+      </div>
+
+      <div class="relative group">
+        <img src="post12.jpg" class="w-full object-cover" alt="post12">
+        <div class="absolute inset-0 bg-black/50 flex items-center justify-center gap-6 opacity-0 group-hover:opacity-100 transition">
+          <span><i class="bi bi-heart-fill"></i> 160</span>
+          <span><i class="bi bi-chat-fill"></i> 19</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="text-neutral-500 text-center text-sm py-8 space-x-4">
+      <span>Meta</span>
+      <span>About</span>
+      <span>Blog</span>
+      <span>Jobs</span>
+      <span>Help</span>
+      <span>API</span>
+      <span>Privacy</span>
+      <span>Terms</span>
+      <span>Locations</span>
+      <span>Instagram Lite</span>
+      <span>Threads</span>
+      <span>Meta Verified</span>
+      <p class="mt-2">© 2025 Instagram from Meta</p>
+    </footer>
+
   </div>
-
-  <!-- Highlights -->
-  <div class="flex space-x-6 mb-12">
-    <div class="text-center">
-      <img src="sorotan1.jpg" class="w-20 h-20 rounded-full border border-neutral-600 object-cover mx-auto" alt="Highlight 1">
-      <p class="text-sm mt-1">.</p>
-    </div>
-    <div class="text-center">
-      <img src="sorotan2.jpg" class="w-20 h-20 rounded-full border border-neutral-600 object-cover mx-auto" alt="Highlight 2">
-      <p class="text-sm mt-1">.</p>
-    </div>
-    <div class="text-center">
-      <img src="sorotan3.jpg" class="w-20 h-20 rounded-full border border-neutral-600 object-cover mx-auto" alt="Highlight 3">
-      <p class="text-sm mt-1">.</p>
-    </div>
-    <div class="text-center">
-      <div class="w-20 h-20 rounded-full border border-neutral-600 flex items-center justify-center mx-auto">
-        <i class="bi bi-plus-lg text-2xl"></i>
-      </div>
-      <p class="text-sm mt-1">New</p>
-    </div>
-  </div>
-
-  <!-- Tabs -->
-  <div class="flex justify-center border-t border-neutral-700 border-b mb-6">
-    <button class="px-6 py-2 text-neutral-400 hover:text-white border-t-2 border-transparent hover:border-white flex items-center space-x-1">
-      <i class="bi bi-grid-3x3-gap-fill"></i>
-    </button>
-    <button class="px-6 py-2 text-neutral-400 hover:text-white border-t-2 border-transparent hover:border-white flex items-center space-x-1">
-      <i class="bi bi-bookmark"></i>
-    </button>
-    <button class="px-6 py-2 text-neutral-400 hover:text-white border-t-2 border-transparent hover:border-white flex items-center space-x-1">
-      <i class="bi bi-person-circle"></i>
-    </button>
-  </div>
-
-  <!-- Posts Grid -->
-  <div class="posts-grid">
-    <!-- Post 1 -->
-    <div class="relative group">
-      <img src="post1.jpg" class="w-full object-cover" alt="post1">
-      <div class="absolute inset-0 bg-black/50 flex items-center justify-center gap-6 opacity-0 group-hover:opacity-100 transition">
-        <span><i class="bi bi-heart-fill"></i> 120</span>
-        <span><i class="bi bi-chat-fill"></i> 15</span>
-      </div>
-    </div>
-    <!-- Post 2 -->
-    <div class="relative group">
-      <img src="post2.jpg" class="w-full object-cover" alt="post2">
-      <div class="absolute inset-0 bg-black/50 flex items-center justify-center gap-6 opacity-0 group-hover:opacity-100 transition">
-        <span><i class="bi bi-heart-fill"></i> 89</span>
-        <span><i class="bi bi-chat-fill"></i> 22</span>
-      </div>
-    </div>
-    <!-- Post 3 -->
-    <div class="relative group">
-      <img src="post3.jpg" class="w-full object-cover" alt="post3">
-      <div class="absolute inset-0 bg-black/50 flex items-center justify-center gap-6 opacity-0 group-hover:opacity-100 transition">
-        <span><i class="bi bi-heart-fill"></i> 210</span>
-        <span><i class="bi bi-chat-fill"></i> 31</span>
-      </div>
-    </div>
-    <!-- Post 4 -->
-    <div class="relative group">
-      <img src="post4.jpg" class="w-full object-cover" alt="post4">
-      <div class="absolute inset-0 bg-black/50 flex items-center justify-center gap-6 opacity-0 group-hover:opacity-100 transition">
-        <span><i class="bi bi-heart-fill"></i> 45</span>
-        <span><i class="bi bi-chat-fill"></i> 6</span>
-      </div>
-    </div>
-    <!-- Post 5 -->
-    <div class="relative group">
-      <img src="post5.jpg" class="w-full object-cover" alt="post5">
-      <div class="absolute inset-0 bg-black/50 flex items-center justify-center gap-6 opacity-0 group-hover:opacity-100 transition">
-        <span><i class="bi bi-heart-fill"></i> 300</span>
-        <span><i class="bi bi-chat-fill"></i> 40</span>
-      </div>
-    </div>
-    <!-- Post 6 -->
-    <div class="relative group">
-      <img src="post6.jpg" class="w-full object-cover" alt="post6">
-      <div class="absolute inset-0 bg-black/50 flex items-center justify-center gap-6 opacity-0 group-hover:opacity-100 transition">
-        <span><i class="bi bi-heart-fill"></i> 99</span>
-        <span><i class="bi bi-chat-fill"></i> 12</span>
-      </div>
-    </div>
-    <!-- Post 7 -->
-    <div class="relative group">
-      <img src="post7.jpg" class="w-full object-cover" alt="post7">
-      <div class="absolute inset-0 bg-black/50 flex items-center justify-center gap-6 opacity-0 group-hover:opacity-100 transition">
-        <span><i class="bi bi-heart-fill"></i> 145</span>
-        <span><i class="bi bi-chat-fill"></i> 18</span>
-      </div>
-    </div>
-    <!-- Post 8 -->
-    <div class="relative group">
-      <img src="post8.jpg" class="w-full object-cover" alt="post8">
-      <div class="absolute inset-0 bg-black/50 flex items-center justify-center gap-6 opacity-0 group-hover:opacity-100 transition">
-        <span><i class="bi bi-heart-fill"></i> 210</span>
-        <span><i class="bi bi-chat-fill"></i> 28</span>
-      </div>
-    </div>
-    <!-- Post 9 -->
-    <div class="relative group">
-      <img src="post9.jpg" class="w-full object-cover" alt="post9">
-      <div class="absolute inset-0 bg-black/50 flex items-center justify-center gap-6 opacity-0 group-hover:opacity-100 transition">
-        <span><i class="bi bi-heart-fill"></i> 310</span>
-        <span><i class="bi bi-chat-fill"></i> 40</span>
-      </div>
-    </div>
-    <!-- Post 10 -->
-    <div class="relative group">
-      <img src="post10.jpg" class="w-full object-cover" alt="post10">
-      <div class="absolute inset-0 bg-black/50 flex items-center justify-center gap-6 opacity-0 group-hover:opacity-100 transition">
-        <span><i class="bi bi-heart-fill"></i> 75</span>
-        <span><i class="bi bi-chat-fill"></i> 9</span>
-      </div>
-    </div>
-    <!-- Post 11 -->
-    <div class="relative group">
-      <img src="post11.jpg" class="w-full object-cover" alt="post11">
-      <div class="absolute inset-0 bg-black/50 flex items-center justify-center gap-6 opacity-0 group-hover:opacity-100 transition">
-        <span><i class="bi bi-heart-fill"></i> 420</span>
-        <span><i class="bi bi-chat-fill"></i> 55</span>
-      </div>
-    </div>
-    <!-- Post 12 -->
-    <div class="relative group">
-      <img src="post12.jpg" class="w-full object-cover" alt="post12">
-      <div class="absolute inset-0 bg-black/50 flex items-center justify-center gap-6 opacity-0 group-hover:opacity-100 transition">
-        <span><i class="bi bi-heart-fill"></i> 160</span>
-        <span><i class="bi bi-chat-fill"></i> 19</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- Footer -->
-  <footer class="text-neutral-500 text-center text-sm py-8 space-x-4">
-    <span>Meta</span>
-    <span>About</span>
-    <span>Blog</span>
-    <span>Jobs</span>
-    <span>Help</span>
-    <span>API</span>
-    <span>Privacy</span>
-    <span>Terms</span>
-    <span>Locations</span>
-    <span>Instagram Lite</span>
-    <span>Threads</span>
-    <span>Meta Verified</span>
-    <p class="mt-2">© 2025 Instagram from Meta</p>
-  </footer>
-</div>
-
-<!-- Bootstrap Icons -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 </body>
 </html>
